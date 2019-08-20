@@ -1,0 +1,36 @@
+{
+  "name": "pako-decorder",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/azu/d-decorder",
+  "bugs": {
+    "url": "https://github.com/azu/d-decorder/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/d-decorder.git"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "main": "lib/d-decorder.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ."
+  },
+  "dependencies": {
+    "pako": "^1.0.10",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.3"
+  }
+}

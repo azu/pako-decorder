@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>decode tool</title>
+    <style>
+        .input {
+            width: 100%;
+            height: 20em;
+            margin: 0.5em;
+            font-size: 24px;
+        }
+
+        .output {
+            width: 100%;
+            height: 20em;
+            margin: 0.5em;
+            font-size: 24px;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+<div id="js-main">
+    <textarea class="input" v-model="message" placeholder=""></textarea>
+    <br>
+    <pre class="output" v-html="compiled"></pre>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
