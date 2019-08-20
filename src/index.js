@@ -9,6 +9,9 @@ new Vue({
         compiled: vm => {
             try {
                 const urlString = vm.message;
+                if (!urlString) {
+                    return "";
+                }
                 const parsed = url.parse(urlString, true);
                 const d = parsed.query && parsed.query.d ? parsed.query.d : urlString;
                 const decoded = pako.inflate(new Buffer(d, 'base64'), {to: 'string'});
