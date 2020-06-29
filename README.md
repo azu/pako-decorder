@@ -1,16 +1,8 @@
-# d-decorder
+# pako-decorder
 
+Decoder tool for [pako](https://www.npmjs.com/package/pako)'s deflate.
 
-
-## Install
-
-Install with [npm](https://www.npmjs.com/):
-
-    npm install d-decorder
-
-## Usage
-
-- [ ] Write usage instructions
+- Visit: <https://pako-decorder.netlify.app/>
 
 ## Changelog
 

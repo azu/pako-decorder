@@ -1,5 +1,6 @@
 const pako = require("pako");
 const url = require("url");
+
 new Vue({
     el: '#js-main',
     data: {
@@ -8,14 +9,22 @@ new Vue({
     computed: {
         compiled: vm => {
             try {
-                const urlString = vm.message;
-                if (!urlString) {
+                const inputBody = vm.message;
+                if (!inputBody) {
                     return "";
                 }
-                const parsed = url.parse(urlString, true);
-                const d = parsed.query && parsed.query.d ? parsed.query.d : urlString;
-                const decoded = pako.inflate(new Buffer(d, 'base64'), {to: 'string'});
-                return JSON.stringify(JSON.parse(decoded), null, 4);
+                try {
+                    const parsed = url.parse(inputBody, true);
+                    const payload = parsed.query && parsed.query.d ? parsed.query.d : inputBody;
+                    const decoded = pako.inflate(new Buffer(payload, 'base64'), { to: 'string' });
+                    return JSON.stringify(JSON.parse(decoded), null, 4);
+                } catch {
+                    // try decode
+                    const payload = decodeURIComponent(inputBody);
+                    console.log(payload);
+                    const decoded = pako.inflate(new Buffer(payload, 'base64'), { to: 'string' });
+                    return JSON.stringify(JSON.parse(decoded), null, 4);
+                }
             } catch (error) {
                 console.error(error);
                 return error;
